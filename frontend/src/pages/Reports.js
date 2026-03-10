@@ -21,7 +21,6 @@ import {
 } from 'react-bootstrap';
 import { jsPDF } from 'jspdf';
 import * as XLSX from 'xlsx';
-import Papa from 'papaparse';
 import {
   FaFilePdf,
   FaFileExcel,
@@ -389,7 +388,10 @@ function Reports() {
         ])
       ];
       
-      const csv = Papa.unparse(csvData);
+      // Simple CSV conversion (replacing papaparse)
+      const csv = csvData.map(row => 
+        row.map(cell => `"${cell}"`).join(',')
+      ).join('\n');
       
       // Create blob and download
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
