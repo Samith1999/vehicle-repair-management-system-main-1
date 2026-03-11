@@ -4,8 +4,7 @@ import {
   Container, 
   Button, 
   Dropdown,
-  Badge,
-  Offcanvas
+  Badge
 } from 'react-bootstrap';
 import { 
   FaBars, 
@@ -22,8 +21,7 @@ import { useNavigate } from 'react-router-dom';
 const Header = ({ user }) => {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [showUserMenu, setShowUserMenu] = useState(false);
+  
 
   const handleLogout = () => {
     localStorage.removeItem('user');

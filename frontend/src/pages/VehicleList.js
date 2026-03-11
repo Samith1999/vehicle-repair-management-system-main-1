@@ -11,7 +11,6 @@ import {
   InputGroup,
   FormControl,
   Badge,
-  Dropdown,
   Modal,
   Alert,
   Pagination
@@ -19,11 +18,9 @@ import {
 import {
   FaSearch,
   FaFilter,
-  FaEye,
   FaEdit,
   FaTrash,
   FaCar,
-  FaPlus,
   FaDownload,
   FaPrint,
   FaSync,

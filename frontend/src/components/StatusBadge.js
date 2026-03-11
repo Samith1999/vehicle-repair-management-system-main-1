@@ -4,7 +4,7 @@ import { REPAIR_STATUS, VEHICLE_STATUS } from '../utils/constants';
 
 const StatusBadge = ({ status, type = 'repair' }) => {
   const getStatusConfig = () => {
-    const statusMap = type === 'repair' ? REPAIR_STATUS : VEHICLE_STATUS;
+    
     
     const configs = {
       [REPAIR_STATUS.PENDING]: { variant: 'warning', text: 'Pending' },
