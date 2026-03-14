@@ -153,7 +153,7 @@ function Login() {
                         </Card.Body>
                         
                         <Card.Footer className="text-center text-muted small">
-                            <div>Backend: http://192.168.1.38:5000</div>
+                            <div>Backend: http://localhost:5000</div>
                             <div>Frontend: http://localhost:3000</div>
                         </Card.Footer>
                     </Card>

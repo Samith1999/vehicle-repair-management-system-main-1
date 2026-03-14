@@ -346,7 +346,6 @@ function OfficerDashboard() {
                           <th>Request ID</th>
                           <th>Vehicle Details</th>
                           <th>Hospital</th>
-                          <th>Hospital Officer</th>
                           <th>Inspection Findings</th>
                           <th>Date</th>
                           <th>Status</th>
@@ -368,12 +367,6 @@ function OfficerDashboard() {
                               </div>
                             </td>
                             <td>{request.hospital_name}</td>
-                            <td>
-                              <div className="small">
-                                {request.engineer_name}
-                                <div className="text-muted">{request.engineer_email}</div>
-                              </div>
-                            </td>
                             <td>
                               <div className="text-truncate" style={{ maxWidth: '250px' }} title={request.inspection_findings}>
                                 {request.inspection_findings || request.repair_details}
@@ -559,11 +552,6 @@ function OfficerDashboard() {
                   </div>
                 </div>
               </Alert>
-              
-              <div className="mb-3">
-                <strong>Hospital Officer Name:</strong>
-                <p className="mt-1">{selectedRequest.engineer_name}</p>
-              </div>
               
               <div className="mb-3">
                 <strong>Inspection Date:</strong>

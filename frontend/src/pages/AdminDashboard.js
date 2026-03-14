@@ -700,15 +700,6 @@ function AdminDashboard() {
                           </Col>
                           <Col md={3} sm={6} className="mb-2">
                             <Button 
-                              variant="outline-success" 
-                              className="w-100 d-flex align-items-center justify-content-center"
-                              onClick={() => setActiveTab('vehicles')}
-                            >
-                              <FaCar className="me-2" /> Add Vehicle
-                            </Button>
-                          </Col>
-                          <Col md={3} sm={6} className="mb-2">
-                            <Button 
                               variant="outline-info" 
                               className="w-100 d-flex align-items-center justify-content-center"
                               onClick={exportData}
@@ -850,118 +841,6 @@ function AdminDashboard() {
                 </div>
               </Tab>
               
-              <Tab eventKey="vehicles" title={
-                <span>
-                  <FaCar className="me-1" />
-                  Vehicle Management
-                  <Badge bg="success" className="ms-2">{stats.totalVehicles}</Badge>
-                </span>
-              }>
-                <div className="mt-3">
-                  <div className="d-flex justify-content-between align-items-center mb-3 gap-2 flex-wrap">
-                    <h5 className="mb-0 flex-grow-1">Vehicle Registry</h5>
-                    <Button 
-                      variant="success" 
-                      onClick={() => {
-                        resetVehicleForm();
-                        setShowVehicleModal(true);
-                      }}
-                      size="sm"
-                    >
-                      <FaCar className="me-2" /> Add New Vehicle
-                    </Button>
-                  </div>
-
-                  {/* Filters */}
-                  <Row className="mb-3">
-                    <Col md={8} className="mb-2">
-                      <InputGroup className="mb-2">
-                        <InputGroup.Text className="bg-light">
-                          <FaSearch />
-                        </InputGroup.Text>
-                        <FormControl
-                          placeholder="Search by registration or hospital name..."
-                          value={vehicleSearchFilter}
-                          onChange={(e) => setVehicleSearchFilter(e.target.value)}
-                        />
-                      </InputGroup>
-                    </Col>
-                    <Col md={4} className="mb-2">
-                      <Form.Select 
-                        value={vehicleStatusFilter}
-                        onChange={(e) => setVehicleStatusFilter(e.target.value)}
-                      >
-                        <option value="all">All Statuses</option>
-                        <option value="operational">Operational</option>
-                        <option value="under_repair">Under Repair</option>
-                        <option value="repaired">Repaired</option>
-                        <option value="approved">Approved</option>
-                      </Form.Select>
-                    </Col>
-                  </Row>
-                
-                  <Table hover responsive className="custom-table">
-                    <thead>
-                      <tr>
-                        <th>Registration</th>
-                        <th>Type</th>
-                        <th>Hospital</th>
-                        <th>Status</th>
-                        <th>Added Date</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {filteredVehicles.length > 0 ? (
-                        filteredVehicles.map((vehicle) => (
-                          <tr key={vehicle.id}>
-                            <td>
-                              <strong><FaCar className="me-2" />{vehicle.registration_number}</strong>
-                            </td>
-                            <td>{vehicle.vehicle_type}</td>
-                            <td>{vehicle.hospital_name}</td>
-                            <td>
-                              <StatusBadge status={vehicle.current_status} type="vehicle" />
-                            </td>
-                            <td>
-                              {new Date(vehicle.created_at).toLocaleDateString()}
-                            </td>
-                            <td>
-                              <div className="d-flex gap-2">
-                                <Button
-                                  variant="outline-primary"
-                                  size="sm"
-                                  onClick={() => handleEditVehicle(vehicle)}
-                                  title="Edit"
-                                >
-                                  <FaEdit />
-                                </Button>
-                                <Button
-                                  variant="outline-danger"
-                                  size="sm"
-                                  onClick={() => handleDeleteVehicle(vehicle.id)}
-                                  title="Delete"
-                                >
-                                  <FaTrash />
-                                </Button>
-                              </div>
-                            </td>
-                          </tr>
-                        ))
-                      ) : (
-                        <tr>
-                          <td colSpan="6" className="text-center text-muted py-4">
-                            No vehicles found matching your criteria
-                          </td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </Table>
-                  <div className="text-muted small mt-2">
-                    Showing {filteredVehicles.length} of {vehicles.length} vehicles
-                  </div>
-                </div>
-              </Tab>
               
               <Tab eventKey="settings" title={
                 <span>

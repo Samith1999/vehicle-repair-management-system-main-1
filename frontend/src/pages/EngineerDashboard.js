@@ -200,7 +200,7 @@ function EngineerDashboard() {
         engineer_id: user.id,
         engineer_name: user.name,
         repair_details: formData.repair_details,
-        status: 'inspection_completed'
+        status: 'sent_to_officer'
       });
 
       setSuccess('Inspection report submitted and sent to Subject Officer successfully!');

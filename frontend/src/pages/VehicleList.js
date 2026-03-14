@@ -304,7 +304,7 @@ function VehicleList() {
                       ← Back
                     </Button>
                     <div>
-                      <h4 className="mb-0">Vehicle Registry</h4>
+                      <h4 className="mb-0">Vehicle Management</h4>
                       <p className="text-muted mb-0">Manage all vehicles in the system</p>
                     </div>
                   </div>
