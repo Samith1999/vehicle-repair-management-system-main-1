@@ -2,13 +2,8 @@ import axios from 'axios';
 
 // Backend URL configuration
 // Configured for localhost development with XAMPP
-const getBackendURL = () => {
-    const backendIP = 'localhost';
-    const port = 5000;
-    return `http://${backendIP}:${port}/api`;
-};
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
 
-const API_BASE_URL = getBackendURL();
 
 // Create axios instance
 const api = axios.create({
@@ -133,8 +128,7 @@ export const repairAPI = {
 // Test connection
 export const testConnection = async () => {
     try {
-        const backendURL = getBackendURL();
-        const response = await axios.get(`${backendURL}`);
+        const response = await axios.get(API_BASE_URL);
         console.log('✅ Backend connection:', response.data);
         return true;
     } catch (error) {
